@@ -2,13 +2,10 @@
 
 namespace Task1
 {
-    internal class Program
+    public class Logic
     {
-        static void Main(string[] args)
+        public static string Transformation(int costOfProduct)
         {
-            int costOfProduct = int.Parse(Console.ReadLine());
-
-
             int rubles = costOfProduct / 100;
             int ruPenny = costOfProduct % 100;
             string messageAnswer = "";
@@ -41,6 +38,18 @@ namespace Task1
                 messageAnswer = messageAnswer + ruPenny + " копейки";
 
             }
+            return messageAnswer;
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int costOfProduct = int.Parse(Console.ReadLine());
+
+
+            string messageAnswer = Logic.Transformation(costOfProduct);
+
 
             Console.WriteLine(messageAnswer);
         }
