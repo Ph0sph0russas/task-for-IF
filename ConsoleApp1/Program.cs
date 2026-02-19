@@ -9,39 +9,39 @@ namespace Task1
             int costOfProduct = int.Parse(Console.ReadLine());
             int rubles = costOfProduct / 100;
             int ruPenny = costOfProduct % 100;
-            if (rubles == 1)
+            if (rubles == 1 || rubles % 10 == 1)
             {
-                Console.WriteLine(rubles);
-                Console.WriteLine(" рубль ");
+                Console.Write(rubles);
+                Console.Write(" рубль ");
             }
             else if ((rubles >= 10 && rubles <= 20) || ((rubles % 10) >= 5 && (rubles % 10) <= 9) || (rubles % 10) == 0)
             {
-                Console.WriteLine(rubles);
-                Console.WriteLine(" рублей ");
+                Console.Write(rubles);
+                Console.Write(" рублей ");
             }
             else if ((rubles % 10) > 1 && (rubles % 10) < 5)
             {
-                Console.WriteLine(rubles);
-                Console.WriteLine(" рубля ");
+                Console.Write(rubles);
+                Console.Write(" рубля ");
             }
             if (ruPenny == 0)
             {
-                Console.WriteLine("ровно");
+                Console.Write("ровно");
             }
-            else if (ruPenny == 1)
+            else if (ruPenny == 1 || ruPenny % 10 == 1)
             {
-                Console.WriteLine(ruPenny);
-                Console.WriteLine("копейка");
+                Console.Write(ruPenny);
+                Console.Write(" копейка");
             }
             else if ((ruPenny >= 10 && ruPenny <= 20) || ((ruPenny % 10) >= 5 && (ruPenny % 10) <= 9) || (ruPenny % 10) == 0)
             {
-                Console.WriteLine(ruPenny);
-                Console.WriteLine(" копеек");
+                Console.Write(ruPenny);
+                Console.Write(" копеек");
             }
             else if ((ruPenny % 10) > 1 && (ruPenny % 10) < 5)
             {
-                Console.WriteLine(ruPenny);
-                Console.WriteLine(" копейки");
+                Console.Write(ruPenny);
+                Console.Write(" копейки");
             }
         }
     }
