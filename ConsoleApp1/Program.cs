@@ -1,13 +1,14 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace Task1
 {
     public class Logic
     {
-        public static string Transformation(int costOfProduct)
+        public static string rublesTransformation(int costOfProduct)
         {
             int rubles = costOfProduct / 100;
-            int ruPenny = costOfProduct % 100;
+            
             string messageAnswer = "";
             if (((rubles >= 10 && rubles <= 20) || ((rubles % 10) >= 5 && (rubles % 10) <= 9) || (rubles % 10) == 0) && rubles != 0)
             {
@@ -21,7 +22,14 @@ namespace Task1
             {
                 messageAnswer = rubles + " рубля ";
             }
-            if (ruPenny == 0 && rubles != 0)
+            
+            return messageAnswer;
+        }
+        public static string pennyTransformation(int costOfProduct)
+        {
+            int ruPenny = costOfProduct % 100;
+            string messageAnswer = "";
+            if (ruPenny == 0)
             {
                 messageAnswer = messageAnswer + "ровно";
             }
@@ -47,8 +55,9 @@ namespace Task1
         {
             int costOfProduct = int.Parse(Console.ReadLine());
 
-
-            string messageAnswer = Logic.Transformation(costOfProduct);
+            string rubMessage = Logic.rublesTransformation(costOfProduct);
+            string pennyMessage=Logic.pennyTransformation(costOfProduct);
+            string messageAnswer = rubMessage+ pennyMessage;
 
 
             Console.WriteLine(messageAnswer);
