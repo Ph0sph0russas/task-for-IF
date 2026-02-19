@@ -14,7 +14,7 @@ namespace Task1
                 Console.Write(rubles);
                 Console.Write(" рубль ");
             }
-            else if ((rubles >= 10 && rubles <= 20) || ((rubles % 10) >= 5 && (rubles % 10) <= 9) || (rubles % 10) == 0)
+            else if (((rubles >= 10 && rubles <= 20) || ((rubles % 10) >= 5 && (rubles % 10) <= 9) || (rubles % 10) == 0) && rubles != 0)
             {
                 Console.Write(rubles);
                 Console.Write(" рублей ");
@@ -24,7 +24,7 @@ namespace Task1
                 Console.Write(rubles);
                 Console.Write(" рубля ");
             }
-            if (ruPenny == 0)
+            if (ruPenny == 0 && rubles != 0)
             {
                 Console.Write("ровно");
             }
