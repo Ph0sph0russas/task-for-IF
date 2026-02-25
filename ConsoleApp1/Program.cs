@@ -5,27 +5,27 @@ namespace Task1
 {
     public class Logic
     {
-        public static string rublesTransformation(int costOfProduct)
+        public static string rublesConvert(int costOfProduct)
         {
             int rubles = costOfProduct / 100;
             
             string messageAnswer = "";
             if (((rubles >= 10 && rubles <= 20) || ((rubles % 10) >= 5 && (rubles % 10) <= 9) || (rubles % 10) == 0) && rubles != 0)
             {
-                messageAnswer = rubles + " рублей ";
+                messageAnswer = rubles + " рублей";
             }
             else if (rubles == 1 || rubles % 10 == 1)
             {
-                messageAnswer = rubles + " рубль ";
+                messageAnswer = rubles + " рубль";
             }
             else if ((rubles % 10) > 1 && (rubles % 10) < 5)
             {
-                messageAnswer = rubles + " рубля ";
+                messageAnswer = rubles + " рубля";
             }
             
             return messageAnswer;
         }
-        public static string pennyTransformation(int costOfProduct)
+        public static string pennyConvert(int costOfProduct)
         {
             int ruPenny = costOfProduct % 100;
             string messageAnswer = "";
@@ -48,6 +48,22 @@ namespace Task1
             }
             return messageAnswer;
         }
+        public static string convertNumberToMoneyString(int costOfProduct)
+        {
+            string rubMessage=Logic.rublesConvert(costOfProduct);
+            string pennyMessage=Logic.pennyConvert(costOfProduct);
+            string messageAnswer;
+            if (rubMessage!="")
+            {
+                messageAnswer = rubMessage + " " + pennyMessage;
+            }
+            else
+            {
+                messageAnswer= pennyMessage;
+            }
+
+            return messageAnswer;
+        }
     }
     internal class Program
     {
@@ -55,10 +71,7 @@ namespace Task1
         {
             int costOfProduct = int.Parse(Console.ReadLine());
 
-            string rubMessage = Logic.rublesTransformation(costOfProduct);
-            string pennyMessage=Logic.pennyTransformation(costOfProduct);
-            string messageAnswer = rubMessage+ pennyMessage;
-
+            string messageAnswer = Logic.convertNumberToMoneyString(costOfProduct);
 
             Console.WriteLine(messageAnswer);
         }
